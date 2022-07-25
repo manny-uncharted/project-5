@@ -50,4 +50,34 @@ In this project I would be demonstrating a basic client-server using MySQL Relat
     Results:
     ![](img/mysql-bind-address.png)
 
-- 
+- In your mysql-server ec2 instance allow the ipaddress of the mysql-client ec2 instance with port 3306 to access the mysql-server ec2 instance.
+    ```
+    curl http://checkip.amazonaws.com
+    ```
+    Results:
+
+    ![](img/port-access.png)
+
+- On your mysql-server create a new user using the following code
+    ```
+    CREATE USER 'newuser2'@'44.203.195.178' IDENTIFIED BY 'password2';
+    GRANT ALL PRIVILEGES ON * . * TO 'newuser2'@'44.203.195.178';
+    ```
+    Note: '44.203.195.178' is the ipaddress of your mysql-client
+    Results:
+    ![](img/mysql-create-user.png)
+
+- To connect to the mysql server, in your mysql client enter the following code.
+    ```
+    mysql -u newuser2 -h 18.234.44.89 -p
+    ```
+    Note: The format is
+    ```
+    mysql -u <user> -h <ipaddress-of-the-server> -p
+    ```
+    and run the following
+    ```
+    show databases;
+    ```
+    Results:
+    ![](img/connect-to-server.png)
