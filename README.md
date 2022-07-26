@@ -81,3 +81,5 @@ In this project I would be demonstrating a basic client-server using MySQL Relat
     ```
     Results:
     ![](img/connect-to-server.png)
+
+Then you're done
